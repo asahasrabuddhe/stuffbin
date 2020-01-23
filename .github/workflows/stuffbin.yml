@@ -87,8 +87,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./stuffbin-darwin-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz
-          asset_name: stuffbin-darwin-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz
+          asset_path: ./stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz
+          asset_name: stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz
           asset_content_type: application/tar+gzip
 
       - name: Upload Windows Asset to Release
