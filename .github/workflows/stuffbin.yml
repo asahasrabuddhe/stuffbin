@@ -51,11 +51,11 @@ jobs:
         if: success() && contains(github.ref, 'v') && matrix.os == 'ubuntu-latest' && matrix.go == '1.13'
         run: |
           GOOS=linux go build -o stuffbin-linux-amd64-${{ steps.extract_version.outputs.VERSION }}/stuffbin -ldflags "-s -w" stuffbin/main.go
-          tar -czvf stuffbin-linux-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-linux-amd64--${{ steps.extract_version.outputs.VERSION }}
+          tar -czvf stuffbin-linux-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-linux-amd64-${{ steps.extract_version.outputs.VERSION }}
           GOOS=darwin go build -o stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}/stuffbin -ldflags "-s -w" stuffbin/main.go
-          tar -czvf stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-macos-amd64--${{ steps.extract_version.outputs.VERSION }}
+          tar -czvf stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-macos-amd64-${{ steps.extract_version.outputs.VERSION }}
           GOOS=windows go build -o stuffbin-windows-amd64-${{ steps.extract_version.outputs.VERSION }}/stuffbin.exe -ldflags "-s -w" stuffbin/main.go
-          tar -czvf stuffbin-windows-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-windows-amd64--${{ steps.extract_version.outputs.VERSION }}
+          tar -czvf stuffbin-windows-amd64-${{ steps.extract_version.outputs.VERSION }}.tar.gz stuffbin-windows-amd64-${{ steps.extract_version.outputs.VERSION }}
 
       - name: Create Release
         id: create_release
